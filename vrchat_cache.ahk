@@ -41,11 +41,11 @@ MKLINK(*){
         DirCopy GameCachePath, LINKGCP, 1
         DirDelete GameCachePath , true
         Run RUNPATH
-        MsgBox "Yes"
+        MsgBox "完成！"
     } else {
         DirCreate LINKGCP
         Run RUNPATH
-        MsgBox "None"
+        MsgBox "您貌似还没有启动过VRChat，但也已经为您转移了模型缓存。"
     }
 }
 
@@ -54,14 +54,15 @@ REMK(*){
     If DirExist(GameCachePath) {
         DirDelete GameCachePath
         DirCopy LINKGCP, GameCachePath 
-        MsgBox "Yes"
+        MsgBox "完成！"
     } else {
-        MsgBox "None"
+        MsgBox "您不需要完成此操作。"
     }
 }
 
 CLEARN(*){
     DirDelete LINKGCP , true
+     MsgBox "完成！"
 }
 
 ; Run A_ComSpec "mklink /d \MyFolder \Users\User1\Documents"
