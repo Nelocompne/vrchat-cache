@@ -101,8 +101,12 @@ REMK(*){
 
 ; 清除目标缓存目录
 CLEARN(*){
-    DirDelete LINKGCP , true
-     MsgBox "完成！"
+    If DirExist(LINKGCP) {
+        DirDelete LINKGCP , true
+        MsgBox "完成！"
+    } else {
+        MsgBox "您不需要完成此操作。"
+    }
 }
 
 ; 以下为windows cmd的动态链接实现
